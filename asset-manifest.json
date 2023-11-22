@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/SmarToucH/static/css/main.ed2d33b5.css",
+    "main.js": "/SmarToucH/static/js/main.0bd975ea.js",
+    "static/media/hero.jpg": "/SmarToucH/static/media/hero.b13ae3bb7d4a0e075efe.jpg",
+    "index.html": "/SmarToucH/index.html",
+    "main.ed2d33b5.css.map": "/SmarToucH/static/css/main.ed2d33b5.css.map",
+    "main.0bd975ea.js.map": "/SmarToucH/static/js/main.0bd975ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed2d33b5.css",
+    "static/js/main.0bd975ea.js"
+  ]
+}

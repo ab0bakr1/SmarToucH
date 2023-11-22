@@ -1,0 +1,18 @@
+.btn-ShopAll{
+    width: 100%;
+    text-align: center;
+    margin-block: 20px;
+}
+.btn-ShopAll button{
+    background: rgb(77, 77, 77);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: solid 1px rgb(77, 77, 77);
+    color: #fff;
+}
+.btn-ShopAll button:hover{
+    background-color: #fff;
+    color: rgb(55, 115, 255);
+    border: 1px dashed rgb(55, 115, 255);
+    font-weight: 500;
+}

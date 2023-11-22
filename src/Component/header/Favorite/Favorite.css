@@ -1,0 +1,85 @@
+.Fav{
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+.Fav h4{
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+.Fav .Fav-n{
+    background-color: black;
+    border-radius: 50px;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    font-size: 10px;
+    top: -5px;
+    right:0px;
+    transform: translate(25%,25%);
+    width: 15px;
+}
+.Fav-menu{
+    flex-direction: column;
+    position: fixed;
+    z-index: 101;
+    background-color: #fff;
+    width: 30%;
+    right: -100%;
+    top: 0;
+    height: 100%;
+    gap: 30px;
+    letter-spacing: 2px;
+    justify-content: start;
+    font-size: 25px;
+    text-align: center;
+    transition: all .3s ease-in-out;
+}
+.Fav-menu.active{
+    right: 0;
+}
+.Fav-menu .Fav-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(77, 77, 77);
+    color: rgb(55, 115, 255);
+    padding-block: 10px;
+}
+.overlay{
+    display: none;
+}
+.overlay.active{
+    display: block;
+    position:fixed;
+    z-index:50;
+    left:0;
+    top:0;
+    background:#00000056;
+    height:100%;
+    width: 100%;
+}
+.PX770 .Favorite{
+    display: none;
+}
+.Fav-body{
+    overflow-y: scroll;
+    max-height: calc(100vh - 60px);
+}
+@media (max-width:1000px) {
+    .Fav-menu{
+        width: 50%;
+    }
+}
+@media (max-width:770px) {
+    .Favorite{
+        display: none;
+    }
+    .PX770 .Favorite{
+        display: block;
+    }
+    .PX770 .Favorite .Fav svg{
+        font-size: 35px !important;
+    }
+}

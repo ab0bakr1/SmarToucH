@@ -1,0 +1,17 @@
+.font{
+    font-size: 1.25rem;
+}
+.Cart-flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+@media (max-width:800px) {
+    .font2{
+        font-size: 0.90rem!important;
+    }
+    .Cart-flex{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

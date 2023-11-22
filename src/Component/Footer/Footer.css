@@ -1,0 +1,49 @@
+footer{
+    background-color:rgb(77, 77, 77);
+    padding-block:20px ;
+}
+.footer-logo h1 a{
+    font-size: 30px;
+    text-decoration: none;
+}
+.footer-logo .logo1{
+    color: rgb(24, 24, 24) !important;
+}
+.footer-logo .logo2{
+    color: rgb(55, 115, 255) !important;
+}
+.footer-logo .logo3{
+    background: linear-gradient(to left,rgba(55, 115, 255, 0.885),rgb(22, 22, 22));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.footer-link{
+    font-size: 20px;
+}
+.footer-link a{
+    text-decoration: none;
+    color: rgb(55, 115, 255);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.footer-new h3{
+    font-size: 25px;
+    color:rgb(55, 115, 255);
+    text-transform: capitalize;
+}
+.footer-new input{
+    padding: 2px 5px;
+    width: 80%;
+}
+.footer-new button{
+    padding: 3px 5px ;
+    border:1px solid transparent;
+    font-weight: 500;
+    background-color:rgb(55, 115, 255) ;
+    color: rgb(77, 77, 77);
+}
+.footer-new button:hover{
+    border: rgb(55, 115, 255) dashed 1px;
+    color: rgb(55, 115, 255);
+    background-color: transparent;
+}

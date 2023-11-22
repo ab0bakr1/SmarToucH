@@ -1,0 +1,15 @@
+.excel-card h5{
+    text-transform: capitalize;
+    margin-top: 10px;
+    color: rgb(55, 115, 255);
+}
+.excel-1{
+    background-color: rgb(77, 77, 77);
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border-radius: 50% 50% 50% 0%;
+}
+.excel-1 svg{
+    margin-top: 23px;
+}

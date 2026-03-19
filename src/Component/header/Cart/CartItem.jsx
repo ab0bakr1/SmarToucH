@@ -2,7 +2,7 @@ import React from 'react';
 import { useShoppingCart } from "../../../Context/Context";
 import AllPhones from "../../../Data/AllPhones.json";
 import { Link } from 'react-router-dom';
-import { faPlus, faMinus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinus, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "./CartItem.css";
 
@@ -19,18 +19,19 @@ const CartItem = ({ id, quantity }) => {
             
             <div className='item-details'>
                 <div className='d-flex justify-content-between align-items-start'>
-                    <Link to={`/SinglePhones/${item.model}`} className='item-title'>
-                        {item.company} {item.model}
+                    <Link className='item-title' to={`/SinglePhones/${item.model}`}>
+                        <h6>{item.company}</h6>
+                        <h5>{item.model}</h5>
                     </Link>
                     <button className='remove-item-btn' onClick={() => removeFromCart(id)}>
-                        <FontAwesomeIcon icon={faTrash} />
+                        <FontAwesomeIcon icon={faTrashCan} />
                     </button>
                 </div>
 
-                <p className='item-price'>${item.price}</p>
-
-                <div className='item-controls'>
-                    <div className='quantity-selector'>
+                <div className='item-meta d-flex justify-content-between align-items-center mt-3'>
+                    <div className='price-tag'>${item.price}</div>
+                    
+                    <div className='quantity-controller'>
                         <button onClick={() => decreaseCartQuantity(id)}><FontAwesomeIcon icon={faMinus} /></button>
                         <span>{quantity}</span>
                         <button onClick={() => increaseCartQuantity(id)}><FontAwesomeIcon icon={faPlus} /></button>
@@ -39,6 +40,6 @@ const CartItem = ({ id, quantity }) => {
             </div>
         </div>
     );
-};
+}
 
 export default CartItem;

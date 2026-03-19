@@ -1,24 +1,34 @@
-.new-title{
-    font-size: 20px;
-    width: 100%;
-    margin-block: 30px;
-}
-.new-title h2{
+.new-section-header {
     text-align: center;
+}
+
+.new-section-header .subtitle {
+    color: #0071e3;
+    font-weight: 700;
     text-transform: uppercase;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
 }
-.new-title .title1{
-    color: rgb(77, 77, 77) !important;
+
+.new-section-header .main-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-top: 10px;
+    font-family: Georgia, serif;
 }
-.new-title .title2{
-    background: linear-gradient(to left,rgba(55, 115, 255, 0.885),rgb(22, 22, 22));
+
+.new-section-header .t1 { color: #1d1d1f; }
+.new-section-header .t3 { color: #0071e3; }
+.new-section-header .t2 {
+    background: linear-gradient(135deg, #0071e3, #1d1d1f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.new-title .title3{
-    color: rgb(55, 115, 255) !important;
-}
-.new-title h2{
-    color: rgb(77, 77, 77);
+
+.title-underline {
+    width: 60px;
+    height: 4px;
+    background: #0071e3;
+    margin: 15px auto;
+    border-radius: 2px;
 }

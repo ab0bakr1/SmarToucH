@@ -1,3 +1,7 @@
+header {
+    width: 100%;
+    overflow: hidden; /* هذا سيقص أي جزء خارج حدود الهيدر */
+}
 /* تنسيق الهيدر الأساسي */
 .custom-header {
     background-color: rgba(255, 255, 255, 0.8);

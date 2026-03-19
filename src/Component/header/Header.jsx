@@ -1,32 +1,51 @@
-import React from "react";
-import "./Header.css"
+import React, { useState, useEffect } from "react";
+import "./Header.css";
+import { Container } from "react-bootstrap";
+// افترضت هنا أن المكونات الفرعية موجودة لديك بالفعل
 import Cart from "./Cart/Cart";
 import Favorite from "./Favorite/Favorite";
 import Navbar from "./Navbar/Navbar";
 import Login from "./Login/Login";
 import Search from "./Search/Search";
-import { Container } from "react-bootstrap";
-
-
 
 function Header() {
+    const [scrolled, setScrolled] = useState(false);
+
+    // تأثير لتغيير شكل النافبار عند النزول للأسفل
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <header className="sticky-top" style={{backgroundColor:"white"}}>
+        <header className={`custom-header sticky-top ${scrolled ? "scrolled" : ""}`}>
             <Container>
-                <div className="d-flex justify-content-between py-2" style={{backgroundColor:"white"}}>
-                    <div className="logo">
-                        <h1><a href="/"><span className="logo1" >Smar</span><span className="logo3">T</span><span className="logo2">oucH</span></a></h1>
+                <div className="header-wrapper d-flex justify-content-between align-items-center py-3">
+                    {/* اللوجو بتصميم أحدث */}
+                    <div className="logo-section">
+                        <a href="/" className="main-logo">
+                            <span className="brand-accent">S</span>mart<span className="brand-highlight">ouch</span>
+                        </a>
                     </div>
-                    <div className="HM d-flex justify-center align-items-center">
-                        <Search />
-                        <Cart />
-                        <Favorite />
-                        <Login />
-                        <Navbar />
+
+                    {/* منطقة الأدوات */}
+                    <div className="action-icons d-flex align-items-center">
+                        <div className="search-wrapper px-2"><Search /></div>
+                        <div className="icons-group d-flex align-items-center gap-4">
+                            <Favorite />
+                            <Cart />
+                            <Login />
+                            <div className="menu-divider"></div>
+                            <Navbar />
+                        </div>
                     </div>
                 </div>
             </Container>
         </header>
-    )
+    );
 }
-export default Header
+
+export default Header;

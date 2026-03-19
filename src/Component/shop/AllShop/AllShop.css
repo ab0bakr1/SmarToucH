@@ -1,0 +1,35 @@
+.all-shop-page {
+    background-color: #fafafa;
+    min-height: 100vh;
+}
+
+.shop-page-banner {
+    background: #1d1d1f;
+    padding: 60px 0;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.shop-page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.shop-page-subtitle {
+    font-size: 1.1rem;
+    color: #86868b;
+    font-weight: 400;
+}
+
+/* تحسين توزيع الشبكة */
+.all-products-grid {
+    padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .shop-page-title { font-size: 1.8rem; }
+    .shop-page-banner { padding: 40px 0; }
+}

@@ -1,24 +1,60 @@
+/* تنسيق الهيدر الأساسي */
+.custom-header {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px); /* تأثير الزجاج الضبابي */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid transparent;
+}
 
-.logo h1 a{
-    font-size: 30px;
+/* عند التمرير لأسفل */
+.custom-header.scrolled {
+    padding: 5px 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid #eee;
+}
+
+/* تصميم اللوجو المبتكر */
+.main-logo {
+    font-size: 26px;
+    font-weight: 800;
     text-decoration: none;
+    letter-spacing: -1px;
+    color: #1d1d1f;
+    transition: transform 0.3s ease;
 }
-.logo .logo1{
-    color: rgb(77, 77, 77) !important;
+
+.main-logo:hover {
+    transform: scale(1.05);
 }
-.logo .logo2{
-    color: rgb(55, 115, 255) !important;
+
+.brand-accent {
+    color: #0071e3; /* أزرق براند جوالات */
+    font-size: 32px;
 }
-.logo .logo3{
-    background: linear-gradient(to left,rgba(55, 115, 255, 0.885),rgb(22, 22, 22));
+
+.brand-highlight {
+    background: linear-gradient(135deg, #0071e3, #40a9ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.HM{
-    gap: 30px;
+
+/* منطقة الأيقونات */
+.action-icons {
+    gap: 15px;
 }
-.PX770{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+
+.icons-group {
+    border-left: 1px solid #e0e0e0;
+    padding-left: 20px;
 }
+
+.menu-divider {
+    width: 1px;
+    height: 25px;
+    background-color: #ddd;
+    margin: 0 5px;
+}
+
+/* تحسين شكل البحث والمكونات */
+/* تأكد أن المكونات مثل Cart و Favorite تستخدم أيقونات SVG بسيطة */

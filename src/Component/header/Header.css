@@ -1,6 +1,8 @@
 header {
     width: 100%;
     overflow: hidden; /* هذا سيقص أي جزء خارج حدود الهيدر */
+    position: relative;
+    z-index:999;
 }
 /* تنسيق الهيدر الأساسي */
 .custom-header {

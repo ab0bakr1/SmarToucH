@@ -3,3 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+.cart-overlay, .fav-overlay, .login-overlay, .nav-overlay {
+    position: fixed; /* يجب أن يكون fixed وليس absolute */
+    top: 0;
+    left: 0;
+    width: 100vw; /* عرض الشاشة الكامل */
+    height: 100vh; /* طول الشاشة الكامل */
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}

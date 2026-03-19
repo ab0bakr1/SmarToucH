@@ -1,134 +1,115 @@
-.modern-hero {
-    height: 85vh; /* تقليل الارتفاع قليلاً ليكون أكثر توازناً مع الهيدر */
+/* الحاوية الرئيسية بعرض كامل */
+.full-width-hero {
+    height: 90vh; /* ارتفاع القسم، يمكن تعديله */
+    width: 100vw; /* عرض الشاشة الكامل */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-image: url(../../IMG/hero.jpg); /* صورتك القديمة */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* تأثير Parallax ناعم عند التمرير */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    position: relative;
-    background-color: #fff; /* خلفية بيضاء نظيفة */
-    padding: 0 5%;
 }
 
-/* الأشكال الهلامية في الخلفية */
-.hero-visual-blobs .blob {
+/* طبقة تظليل فوق الصورة لتحسين وضوح النص */
+.hero-overlay-dark {
     position: absolute;
-    filter: blur(80px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* تظليل بنسبة 40% */
     z-index: 1;
-    border-radius: 50%;
-    opacity: 0.4;
 }
 
-.blob-1 {
-    width: 400px;
-    height: 400px;
-    background: #0071e3;
-    top: -100px;
-    right: -50px;
-}
-
-.blob-2 {
-    width: 300px;
-    height: 300px;
-    background: #40a9ff;
-    bottom: -50px;
-    left: -50px;
-}
-
-.hero-content-wrapper {
+/* محتوى النص المتوسط */
+.hero-content-centered {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* فوق التظليل */
     text-align: center;
-    max-width: 900px;
+    color: white;
+    max-width: 800px; /* تحديد عرض النص لسهولة القراءة */
+    padding: 0 20px;
 }
 
-.hero-badge {
+.hero-welcome-badge {
     display: inline-block;
-    padding: 6px 16px;
-    background: #f5f5f7;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #0071e3;
-    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #ffffffd1;
+    font-family: Georgia, 'Times New Roman', Times, serif; /* الحفاظ على خطك القديم */
     text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero-brand-title {
+    font-size: clamp(3rem, 10vw, 6rem); /* خط مرن ضخم وعصري */
+    font-weight: 900;
+    font-family: fantasy, sans-serif; /* خطك القديم Fantasy */
     letter-spacing: 1px;
-}
-
-.hero-main-title {
-    font-size: clamp(2.5rem, 8vw, 5rem); /* خط مرن يكبر ويصغر حسب الشاشة */
-    font-weight: 800;
     line-height: 1.1;
-    color: #1d1d1f;
     margin-bottom: 25px;
+    color: white;
 }
 
-.text-gradient {
-    background: linear-gradient(90deg, #0071e3, #40a9ff, #272727);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* تمييز حرف T كما في تصميم اللوجو */
+.hero-brand-title .text-highlight-T {
+    color: #0071e3; /* اللون الأزرق العصري */
+    font-weight: 800;
 }
 
-.hero-subtitle {
-    font-size: 1.2rem;
-    color: #86868b;
-    max-width: 600px;
-    margin: 0 auto 40px;
+.hero-lead-subtitle {
+    font-size: 1.5rem; /* حجم خط مريح للقراءة */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* خطك القديم */
+    color: #ffffffd1;
+    font-weight: 300;
     line-height: 1.6;
+    margin-bottom: 50px;
 }
 
-/* الأزرار الاحترافية */
-.hero-btn-group {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
+/* تصميم الزر المطور والمبتكر */
+.hero-modern-shop-btn {
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1d1d1f; /* أسود فاتح */
+    background-color: white; /* خلفية بيضاء */
+    border: none;
+    border-radius: 30px; /* حواف ناعمة */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
-.hero-primary-btn {
-    padding: 16px 35px;
-    background: #1d1d1f;
+.hero-modern-shop-btn:hover {
+    background-color: #0071e3; /* يتحول للأزرق العصري */
     color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    transform: translateY(-5px); /* حركة للأعلى */
+    box-shadow: 0 10px 20px rgba(0, 113, 227, 0.3); /* توهج أزرق ناعم */
 }
 
-.hero-primary-btn:hover {
-    background: #000;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    color: white;
-}
-
-.hero-secondary-btn {
-    padding: 16px 35px;
-    background: transparent;
-    color: #1d1d1f;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    border: 2px solid #1d1d1f;
-    transition: 0.3s;
-}
-
-.hero-secondary-btn:hover {
-    background: #f5f5f7;
-    border-color: #f5f5f7;
-}
-
-/* Animations */
-.hero-text-area {
+/* تأثير تحريك النصوص عند التحميل */
+.hero-text-animate-wrapper {
     animation: fadeInUp 1s ease-out;
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* التجاوب */
+/* التجاوب للهواتف */
 @media (max-width: 768px) {
-    .hero-main-title { font-size: 3rem; }
-    .hero-btn-group { flex-direction: column; align-items: center; }
-    .hero-primary-btn, .hero-secondary-btn { width: 100%; max-width: 300px; }
+    .hero-brand-title { font-size: 3rem; }
+    .hero-lead-subtitle { font-size: 1.1rem; }
+    .full-width-hero { height: 80vh; }
 }

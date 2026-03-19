@@ -11,8 +11,8 @@ const Home = () => {
   return (
     <>
     <Header />
-    <Container>
     <Hero />
+    <Container>
     <Shop />
     <Excel />
     <Opinions />

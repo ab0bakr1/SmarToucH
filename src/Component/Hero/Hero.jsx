@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Hero.css";
 import { Link } from 'react-router-dom';
+import heroIMG from '../../../IMG/hero.jpg';
 
 const Hero = () => {
     return (
@@ -35,7 +36,7 @@ const Hero = () => {
 
                 {/* يمكنك وضع صورة هاتف شفاف PNG هنا لتعزيز الشكل */}
                 <div className="hero-image-box">
-                    {/* <img src="phone-image.png" alt="Featured Device" /> */}
+                    <img src={heroIMG} alt="Featured Device" />
                 </div>
             </div>
         </div>

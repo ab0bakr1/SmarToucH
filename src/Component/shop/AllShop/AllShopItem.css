@@ -1,0 +1,120 @@
+/* الحاوية الخارجية للكارت */
+.product-card-modern {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    border: 1px solid #f0f0f5;
+    
+    /* سحر التوحيد هنا */
+    display: flex;
+    flex-direction: column;
+    width: 100%;       /* يأخذ عرض العامود بالكامل */
+    height: 450px;     /* تحديد طول ثابت لجميع الكروت */
+    box-sizing: border-box;
+}
+
+.product-card-modern:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* منطقة الصورة */
+.product-image-area {
+    position: relative;
+    background: #f8f8fa;
+    border-radius: 15px;
+    height: 220px;     /* طول ثابت لمنطقة الصورة */
+    min-height: 220px; /* ضمان عدم التقلص */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.product-img {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain; /* يحافظ على أبعاد الصورة دون تمطيط */
+    transition: transform 0.5s ease;
+}
+
+/* منطقة المعلومات */
+.product-info-area {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* يوزع العناصر (الماركة، الاسم، السعر) بالتساوي */
+    flex-grow: 1; /* يجعل هذه المنطقة تأخذ المساحة المتبقية من طول الكارت الثابت */
+}
+
+.brand-name {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #86868b;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.model-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0;
+    /* تحديد عدد الأسطر لاسم الهاتف (في حال كان الاسم طويلاً جداً) */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.8rem; /* طول ثابت لسطرين من العنوان لضمان توازي الأسعار */
+}
+
+.price-wrapper {
+    margin-top: auto; /* يدفع السعر دائماً لأسفل الكارت */
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #0071e3;
+    padding-top: 10px;
+}
+
+/* الأزرار العائمة (Quick Actions) */
+.product-quick-actions {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.product-card-modern:hover .product-quick-actions {
+    bottom: 0;
+}
+
+.action-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    color: #1d1d1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.action-btn:hover {
+    background: #0071e3;
+    color: #fff;
+}

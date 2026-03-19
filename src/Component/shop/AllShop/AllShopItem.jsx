@@ -5,7 +5,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { useShoppingCart } from "../../../Context/Context";
 import { Link } from 'react-router-dom';
 // ملاحظة: سنستخدم NewItem.css الذي أنشأناه سابقاً لأنه يحتوي على التنسيقات الحديثة
-import "../New/NewItem.css"; 
+import "./AllShopItem.css"; 
 
 const AllShopItem = ({id, image, company, model, price }) => {
   const { Favorites, increaseCartQuantity, deleteFav, addToFav } = useShoppingCart();

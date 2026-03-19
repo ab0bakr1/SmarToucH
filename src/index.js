@@ -12,6 +12,7 @@ import ShoppingCartProvider from './Context/Context';
 import AllShop from './Component/shop/AllShop/AllShop';
 import About from './Component/About/About';
 import Contact from './Component/Contact/Contact';
+import './App.css';
 
 const router = createBrowserRouter([
   {

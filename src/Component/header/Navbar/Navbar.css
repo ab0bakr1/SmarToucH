@@ -1,66 +1,157 @@
-.Nav-btn{
+/* زر فتح القائمة */
+.nav-trigger-btn {
     cursor: pointer;
+    font-size: 1.6rem;
+    color: #1d1d1f;
+    transition: 0.3s;
 }
-.nav-menu{
+
+.nav-trigger-btn:hover {
+    color: #0071e3;
+}
+
+/* تصميم القائمة الجانبية */
+.modern-nav-menu {
     position: fixed;
-    text-transform: capitalize;
-    margin: 0;
-    background-color: rgb(77, 77, 77);
-    font-size: 30px;
-    z-index: 101;
-    width: 30%;
-    right: -100%;
     top: 0;
-    height: 100%;
-    transition: all 0.3s ease-in-out;
-}
-.nav-menu.active{
-    right: 0;
-}
-.nav-menu .nav-header{
-    padding-bottom: 25px;
-    padding-top: 10px;
-}
-.nav-menu .nav-header svg{
-    cursor: pointer;
-    margin-left: 60px;
-}
-.nav-menu .nav-item{
+    right: -100%;
+    width: 380px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
+}
+
+.modern-nav-menu.active {
+    right: 0;
+}
+
+/* محتوى القائمة */
+.nav-content-wrapper {
+    padding: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* زر الإغلاق */
+.nav-close-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 60px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+    color: #ff3b30;
+}
+
+/* روابط التنقل */
+.nav-links-list {
     list-style: none;
-    text-align: center;
-    gap: 10px;
-    letter-spacing: 2px;
-    padding-top: 30px;
+    padding: 0;
+    margin-bottom: auto;
 }
-.nav-menu li a{
-    color:aliceblue ;
-    cursor: pointer;
+
+.nav-links-list li {
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.nav-links-list li a {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1d1d1f;
     text-decoration: none;
+    text-transform: capitalize;
+    position: relative;
+    transition: 0.3s;
+    display: inline-block;
 }
-.nav-menu li a:hover,
-.nav-menu li a:focus{
-    text-shadow: 0px 0 5px rgb(55, 115, 255);
+
+/* تأثير الخط السفلي عند الـ Hover */
+.nav-links-list li a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #0071e3;
+    transition: width 0.3s ease;
 }
-.overlay{
-    display: none;
-}
-.overlay.active{
-    display: block;
-    position:fixed;
-    z-index:50;
-    left:0;
-    top:0;
-    background:#00000056;
-    height:100%;
+
+.nav-links-list li a:hover::after,
+.nav-links-list li a.active-link::after {
     width: 100%;
 }
-.Nav-socail{
-    margin-top: 150px;
+
+.nav-links-list li a:hover {
+    color: #0071e3;
 }
-@media (max-width:1000px) {
-    .nav-menu{
-        width: 50%;
+
+/* القسم السفلي (سوشيال ميديا) */
+.nav-footer-section {
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+}
+
+.social-icons-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.social-icons-row a {
+    color: #86868b;
+    font-size: 1.4rem;
+    transition: 0.3s;
+}
+
+.social-icons-row a:hover {
+    color: #0071e3;
+    transform: translateY(-3px);
+}
+
+.nav-copyright {
+    font-size: 0.8rem;
+    color: #a1a1a6;
+}
+
+/* الستارة الخلفية */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    z-index: 999;
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* التجاوب */
+@media (max-width: 576px) {
+    .modern-nav-menu {
+        width: 100%;
     }
 }

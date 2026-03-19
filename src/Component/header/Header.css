@@ -1,11 +1,22 @@
-header {
-    width: 100%;
-    overflow: hidden; /* هذا سيقص أي جزء خارج حدود الهيدر */
-    position: relative;
-    z-index:999;
+/* لمنع ظهور شريط التمرير الأفقي في كامل الموقع بشكل صحيح */
+body {
+    overflow-x: hidden;
+}
+
+/* تأكد أن الأوفرلي والقوائم لها z-index أعلى من محتوى الصفحة */
+.cart-overlay, .fav-overlay, .login-overlay, .nav-overlay {
+    z-index: 1100;
+}
+
+.modern-side-cart, .modern-fav-menu, .modern-nav-menu, .modern-login-modal {
+    z-index: 1200;
 }
 /* تنسيق الهيدر الأساسي */
 .custom-header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1050;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px); /* تأثير الزجاج الضبابي */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

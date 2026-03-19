@@ -1,32 +1,54 @@
-import { faCircleUser, faX } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faXmark, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react'
-import "./Login.css"
+import React, { useState } from 'react';
+import "./Login.css";
 
 const Login = () => {
-    const [Overlay, setOverlay] = useState("overlay");
-    const [LoginMenu , setLoginMenu] = useState("Login-menu");
-    const Login =() =>{
-      Overlay === "overlay" ? setOverlay ("overlay active") : setOverlay("overlay");
-      LoginMenu === "Login-menu" ? setLoginMenu("Login-menu active") : setLoginMenu("Login-menu");
-    }
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleLogin = () => setIsOpen(!isOpen);
+
     return (
-      <div className='Login'>
-        <div>
-            <button className='Login-btn' onClick={Login}><FontAwesomeIcon icon={faCircleUser} style={{color: "#121212",}} /> Login</button>
+        <div className='login-container'>
+            {/* زر الدخول في النافبار */}
+            <button className='login-trigger-btn' onClick={toggleLogin}>
+                <FontAwesomeIcon icon={faCircleUser} />
+                <span>Login</span>
+            </button>
+
+            {/* نافذة تسجيل الدخول (Modal) */}
+            <div className={`modern-login-modal ${isOpen ? "active" : ""}`}>
+                <div className='login-card'>
+                    <button className='close-login-btn' onClick={toggleLogin}>
+                        <FontAwesomeIcon icon={faXmark} />
+                    </button>
+                    
+                    <div className='login-content'>
+                        <div className='demo-badge'>
+                            <FontAwesomeIcon icon={faTriangleExclamation} />
+                            <span>System Notice</span>
+                        </div>
+                        
+                        <h2 className='login-title'>Demo Mode</h2>
+                        <div className='title-divider'></div>
+                        
+                        <p className='login-description'>
+                            Our authentication system is currently under 
+                            <span className='highlight'> development</span>. 
+                            Full access will be available in the next update.
+                        </p>
+                        
+                        <button className='login-confirm-btn' onClick={toggleLogin}>
+                            Got it, thanks!
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {/* الخلفية المظلمة */}
+            <div onClick={toggleLogin} className={`login-overlay ${isOpen ? "active" : ""}`}></div>
         </div>
-        <div className={LoginMenu}>
-          <div className='Login-header'>
-            <FontAwesomeIcon className='fs-2' onClick={Login} icon={faX} style={{color: "rgb(55, 115, 255)",}} />
-          </div>
-          <div className='Login-item'>
-            <h2>demo mode</h2>
-            <p className='mt-5 fs-5'>The website is still under trial and development</p>
-          </div>
-        </div>
-        <div onClick={Login} className={Overlay}></div>
-      </div>
-    )
+    );
 }
 
-export default Login
+export default Login;

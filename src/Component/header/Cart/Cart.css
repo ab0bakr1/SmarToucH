@@ -27,6 +27,7 @@
     position: fixed;
     top: 0;
     right: -100%;
+    visibility: hidden;
     width: 400px;
     height: 100vh;
     background: #fff;
@@ -37,7 +38,10 @@
     box-shadow: -10px 0 30px rgba(0,0,0,0.1);
 }
 
-.modern-side-cart.active { right: 0; }
+.modern-side-cart.active { 
+    right: 0; 
+    visibility: visible;
+}
 
 .cart-header {
     padding: 25px;

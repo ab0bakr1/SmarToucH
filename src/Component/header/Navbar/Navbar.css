@@ -15,6 +15,7 @@
     position: fixed;
     top: 0;
     right: -100%;
+    visibility: hidden;
     width: 380px;
     height: 100vh;
     background: rgba(255, 255, 255, 0.98);
@@ -28,6 +29,7 @@
 
 .modern-nav-menu.active {
     right: 0;
+    visibility: visible;
 }
 
 /* محتوى القائمة */

@@ -1,40 +1,50 @@
-import { faX } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
+import "./Favorite.css";
+import { faXmark, faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react'
-import "./Favorite.css"
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { useShoppingCart } from '../../../Context/Context';
 import FavItem from './FavItem';
 
 const Favorite = () => {
-  const { FavQuantity,Favorites } = useShoppingCart();
-  const [Overlay, setOverlay] = useState("overlay");
-  const [FavMenu , setFavMenu] = useState("Fav-menu");
-  const Fav =() =>{
-    FavMenu === "Fav-menu" ? setFavMenu("Fav-menu active") : setFavMenu("Fav-menu");
-    Overlay === "overlay" ? setOverlay("overlay active") : setOverlay("overlay");
-  }
+  const { FavQuantity, Favorites } = useShoppingCart();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleFav = () => setIsOpen(!isOpen);
+
   return (
-    <div className='Favorite'>
-      <div className='Fav'>
-        <FontAwesomeIcon onClick={Fav} icon={faHeart} className='fs-2' style={{color: "#478bff",}} />
-        <span className='Fav-n'>{FavQuantity}</span>
+    <div className='favorite-component'>
+      <div className='fav-trigger' onClick={toggleFav}>
+        <FontAwesomeIcon icon={FavQuantity > 0 ? faHeartSolid : faHeartRegular} 
+          className={FavQuantity > 0 ? "active-heart" : ""} 
+        />
+        {FavQuantity > 0 && <span className='fav-badge'>{FavQuantity}</span>}
       </div>
-      <div className={FavMenu}>
-        <div className='Fav-header'>
-          <FontAwesomeIcon className='fs-2' onClick={Fav} icon={faX} />
-          <h3 className='m-0 fs-1'>Favorite</h3>
+
+      <div className={`modern-fav-menu ${isOpen ? "active" : ""}`}>
+        <div className='fav-menu-header'>
+          <h3>Favorites</h3>
+          <button className='close-fav' onClick={toggleFav}>
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
         </div>
-        <div className='Fav-body'>
-        {Favorites.map((item) =>(
-            <FavItem key={item.id} {...item}/>
-          ))}
+
+        <div className='fav-menu-body'>
+          {Favorites.length > 0 ? (
+            Favorites.map((item) => <FavItem key={item.id} {...item} />)
+          ) : (
+            <div className='empty-fav-state'>
+              <FontAwesomeIcon icon={faHeartRegular} size="3x" />
+              <p>Your wishlist is empty</p>
+              <button onClick={toggleFav} className="start-shopping-btn">Explore Phones</button>
+            </div>
+          )}
         </div>
       </div>
-      <div onClick={Fav} className={Overlay}></div>
+
+      <div onClick={toggleFav} className={`fav-overlay ${isOpen ? "active" : ""}`}></div>
     </div>
-    
-  )
+  );
 }
 
-export default Favorite
+export default Favorite;

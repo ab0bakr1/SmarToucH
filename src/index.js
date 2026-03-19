@@ -13,7 +13,7 @@ import AllShop from './Component/shop/AllShop/AllShop';
 import About from './Component/About/About';
 import Contact from './Component/Contact/Contact';
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,

@@ -1,46 +1,67 @@
-import { faBarsStaggered, faX } from '@fortawesome/free-solid-svg-icons';
+import { faBarsStaggered, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react'
-import Login from "../Login/Login"
-import Favorite from '../Favorite/Favorite';
-import "./Navbar.css"
-import { Link } from 'react-router-dom';
-import { faFacebook, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { faFacebookF, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import "./Navbar.css";
+
 const Navbar = () => {
-  const [Overlay, setOverlay] = useState("overlay");
-  const [NavMenu , setNavMenu] = useState("nav-menu");
-  const Mobail =() =>{
-    Overlay === "overlay" ? setOverlay ("overlay active") : setOverlay("overlay");
-    NavMenu === "nav-menu" ? setNavMenu("nav-menu active") : setNavMenu("nav-menu");
-  }
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation(); // لمعرفة الصفحة الحالية وتنشيط الرابط
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
     <>
-      <div className='Nav-btn'>
-        <FontAwesomeIcon className='fs-2' onClick={Mobail} icon={faBarsStaggered} style={{color: "#633b49",}} />
+      {/* زر القائمة الرئيسي */}
+      <div className='nav-trigger-btn' onClick={toggleMenu}>
+        <FontAwesomeIcon icon={faBarsStaggered} />
       </div>
-      <nav className={NavMenu}>
-        <div className='nav-header'>
-          <FontAwesomeIcon className='fs-2' onClick={Mobail} icon={faX} style={{color: "rgb(55, 115, 255)",}} />
-        </div>
-        <div className='PX770'>
-          <Login />
-          <Favorite />
-        </div>
-        <ul className='nav-item'>
-            <li><Link to="/">home</Link></li>
-            <li><Link to="/Shop-All">shop</Link></li>
-            <li><Link to="/about-us">about</Link></li>
-            <li><Link to="/Contact-us">contact</Link></li>
-        </ul>
-        <div className='Nav-socail d-flex gap-5 fs-2 justify-content-center'>
-          <FontAwesomeIcon icon={faFacebook} style={{color: "rgb(55, 115, 255)",}} />
-          <FontAwesomeIcon icon={faInstagram} style={{color: "rgb(55, 115, 255)",}} />
-          <FontAwesomeIcon icon={faXTwitter} style={{color: "rgb(55, 115, 255)",}} />
+
+      {/* القائمة الجانبية */}
+      <nav className={`modern-nav-menu ${isOpen ? "active" : ""}`}>
+        <div className='nav-content-wrapper'>
+          
+          <div className='nav-close-header'>
+            <button className='close-btn' onClick={toggleMenu}>
+              <FontAwesomeIcon icon={faXmark} />
+            </button>
+          </div>
+
+          <ul className='nav-links-list'>
+            {[
+              { name: 'Home', path: '/' },
+              { name: 'Shop', path: '/Shop-All' },
+              { name: 'About', path: '/about-us' },
+              { name: 'Contact', path: '/Contact-us' }
+            ].map((link) => (
+              <li key={link.name}>
+                <Link 
+                  to={link.path} 
+                  className={location.pathname === link.path ? "active-link" : ""}
+                  onClick={toggleMenu}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className='nav-footer-section'>
+            <div className='social-icons-row'>
+              <a href="#"><FontAwesomeIcon icon={faFacebookF} /></a>
+              <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
+              <a href="#"><FontAwesomeIcon icon={faXTwitter} /></a>
+            </div>
+            <p className="nav-copyright">© 2024 Smartouch</p>
+          </div>
         </div>
       </nav>
-      <div onClick={Mobail} className={Overlay}></div>
+
+      {/* الطبقة الشفافة خلف القائمة */}
+      <div onClick={toggleMenu} className={`nav-overlay ${isOpen ? "active" : ""}`}></div>
     </>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

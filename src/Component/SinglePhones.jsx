@@ -3,95 +3,118 @@ import { AllPhones } from "../Data/SinglePhones";
 import React, { useState } from "react";
 import Header from "./header/Header";
 import Footer from "./Footer/Footer";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Badge } from "react-bootstrap";
 import "./SinglePhones.css";
-import {useShoppingCart} from "../Context/Context"
+import { useShoppingCart } from "../Context/Context"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faHeartCircleCheck, faX } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faHeartCircleCheck, faX, faMicrochip, faBatteryFull, faCamera, faMemory } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
 const SinglePhones = () => {
-  const {increaseCartQuantity,addToFav,deleteFav,Favorites} = useShoppingCart();
- const { model } = useParams();
- const phones = AllPhones.find((p) => p.model === model);
- const [ImgColor, setImgColor] = useState("");
- const handleButtonClick = (value) => {
-    setImgColor(value);
- };
- const FavChecker = (id) =>{
-  const boolean = Favorites.some((item) => item.id === id);
-  return boolean;
+    const { increaseCartQuantity, addToFav, deleteFav, Favorites } = useShoppingCart();
+    const { model } = useParams();
+    const phones = AllPhones.find((p) => p.model === model);
+    const [ImgColor, setImgColor] = useState("");
+    const [isBuyMenuOpen, setIsBuyMenuOpen] = useState(false);
+
+    if (!phones) return <div className="text-center py-5">Product Not Found</div>;
+
+    const isFavorite = Favorites.some((item) => item.id === phones.id);
+
+    return (
+        <div className="single-product-page">
+            <Header />
+            <Container>
+                <section className="product-details-container my-5">
+                    <Row className="align-items-center">
+                        {/* الجانب الأيسر: عرض الصور */}
+                        <Col lg={6} className="product-image-section">
+                            <div className="main-img-wrapper">
+                                <img 
+                                    src={ImgColor ? phones.image[ImgColor] : phones.image.one} 
+                                    alt={phones.model} 
+                                    className="img-fluid floating-img"
+                                />
+                            </div>
+                            <div className="color-selector-wrapper">
+                                <h6>Select Color:</h6>
+                                <div className="color-options">
+                                    {phones.colorimg.map((color) => (
+                                        <div 
+                                            key={color}
+                                            className={`color-circle ${ImgColor === color ? 'active' : ''}`}
+                                            style={{ backgroundColor: color }}
+                                            onClick={() => setImgColor(color)}
+                                            title={color}
+                                        ></div>
+                                    ))}
+                                </div>
+                            </div>
+                        </Col>
+
+                        {/* الجانب الأيمن: المعلومات والشراء */}
+                        <Col lg={6} className="product-info-section">
+                            <div className="product-header">
+                                <Badge bg="primary" className="mb-2">{phones.company}</Badge>
+                                <h1 className="product-title">{phones.model}</h1>
+                                <h2 className="product-price">${phones.price}</h2>
+                            </div>
+
+                            <div className="specs-grid">
+                                <div className="spec-card">
+                                    <FontAwesomeIcon icon={faMicrochip} />
+                                    <span>{phones.OS}</span>
+                                </div>
+                                <div className="spec-card">
+                                    <FontAwesomeIcon icon={faCamera} />
+                                    <span>{phones.CAMERA}</span>
+                                </div>
+                                <div className="spec-card">
+                                    <FontAwesomeIcon icon={faMemory} />
+                                    <span>{phones.MEMORY}</span>
+                                </div>
+                                <div className="spec-card">
+                                    <FontAwesomeIcon icon={faBatteryFull} />
+                                    <span>{phones.BATTERY}</span>
+                                </div>
+                            </div>
+
+                            <div className="action-buttons-wrapper">
+                                <button className="buy-now-btn" onClick={() => setIsBuyMenuOpen(true)}>
+                                    Buy Now
+                                </button>
+                                <button className="icon-btn-action" onClick={() => isFavorite ? deleteFav(phones.id) : addToFav(phones.id)}>
+                                    <FontAwesomeIcon icon={isFavorite ? faHeartCircleCheck : faHeart} />
+                                </button>
+                                <button className="icon-btn-action" onClick={() => increaseCartQuantity(phones.id)}>
+                                    <FontAwesomeIcon icon={faCartShopping} />
+                                </button>
+                            </div>
+                        </Col>
+                    </Row>
+                </section>
+            </Container>
+
+            {/* نافذة الشراء التجريبية */}
+            {isBuyMenuOpen && (
+                <>
+                    <div className="modern-overlay" onClick={() => setIsBuyMenuOpen(false)}></div>
+                    <div className="modern-buy-menu shadow-lg">
+                        <button className="close-menu" onClick={() => setIsBuyMenuOpen(false)}>
+                            <FontAwesomeIcon icon={faX} />
+                        </button>
+                        <div className="menu-content text-center">
+                            <div className="demo-icon">🚀</div>
+                            <h3>Demo Mode</h3>
+                            <p>This store is currently in development. Online checkout is coming soon!</p>
+                            <button className="confirm-btn" onClick={() => setIsBuyMenuOpen(false)}>Got it!</button>
+                        </div>
+                    </div>
+                </>
+            )}
+            <Footer />
+        </div>
+    );
 };
-const [Overlay, setOverlay] = useState("overlay");
-const [BuyMenu , setBuyMenu] = useState("Buy-menu");
-const Buy =() =>{
-  Overlay === "overlay" ? setOverlay ("overlay active") : setOverlay("overlay");
-  BuyMenu === "Buy-menu" ? setBuyMenu("Buy-menu active") : setBuyMenu("Buy-menu");
-}
-const item = AllPhones.find((i) => i.id === phones.id);
-    if (item == null) return null;
 
- return (
-    <>
-      <Header />
-      <Container>
-        <section className="my-5">
-          <Row lg={2} className="single_phone">
-            <Col className="single-image">
-              {(ImgColor) ? (
-              <img className="w-100 h-100" src={phones.image[ImgColor]}/>) 
-              : (
-              <img className="w-100 h-100" src={phones.image.one}/>)}
-              <div className="single-color">
-                {phones.colorimg.map((color) => (
-                 <button onClick={() => handleButtonClick(color)}>
-                    {color} <div className="color-btn" style={{ backgroundColor: `${color}` }}></div>
-                 </button>
-                ))}
-              </div>
-            </Col>
-            <div className="single-item">
-              <h2>{phones.company} {phones.model}</h2>
-              <h4><span>OS:</span> {phones.OS}</h4>
-              <h4><span>CAMERA:</span> {phones.CAMERA}</h4>
-              <h4><span>SELFIE CAMERA:</span> {phones["SELFIE CAMERA"]}</h4>
-              <h4><span>BATTERY:</span> {phones.BATTERY}</h4>
-              <h4><span>MEMORY:</span> {phones.MEMORY}</h4>
-              <h4><span>price:</span> ${phones.price}</h4>
-              <div className="single-btns">
-                <div>
-                  {FavChecker(item.id) ? (
-                    <button className='btn-fav' onClick={() => deleteFav(item.id)}><FontAwesomeIcon  icon={faHeartCircleCheck} className='fs-2' style={{color: "rgb(55, 115, 255)",}} /></button>)  
-                    :( 
-                    <button className='btn-fav' onClick={() => addToFav(item.id)}><FontAwesomeIcon  icon={faHeart} className='fs-2' style={{color: "rgb(55, 115, 255)",}} /></button>)
-                  }
-                </div>
-                <div>
-                  <button className='btn-cart' onClick={() => increaseCartQuantity(item.id)}><FontAwesomeIcon icon={faCartShopping} className='fs-2' style={{color: "rgb(55, 115, 255)",}} /></button>
-                </div>
-                <div className="w-100">
-                  <button className="btn-buy" onClick={Buy}>buy now</button>
-                </div>
-                <div className={BuyMenu}>
-                  <div className='Buy-header'>
-                    <FontAwesomeIcon className='fs-2' onClick={Buy} icon={faX} style={{color: "rgb(55, 115, 255)",}} />
-                  </div>
-                  <div className='Buy-item'>
-                    <h2>demo mode</h2>
-                    <p className='mt-5 fs-5'>The website is still under trial and development</p>
-                  </div>
-                </div>
-                <div onClick={Buy} className={Overlay}></div>
-              </div>
-            </div>
-          </Row>
-        </section>
-      </Container>
-      <Footer />
-    </>
- );
-};
-
-export default SinglePhones
-
-
+export default SinglePhones;

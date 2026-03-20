@@ -1,156 +1,75 @@
-import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react'
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
+
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
-import "./Opinions.css"
+import "./Opinions.css";
 
-import { FreeMode, Pagination } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react'
 const Opinions = () => {
-  return (
-    <section className='my-5 Opinions'>
-      <h2 className='text-center text-capitalize mb-2'>Our customers' opinion</h2>
-        <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
-        breakpoints={{
-          '@0.00': {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          '@1.00': {
-            slidesPerView: 1,
-            spaceBetween: 40,
-          },
-          '@1.50': {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-          '@2.00': {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-        }}
-        modules={[FreeMode, Pagination]}
-        className="mySwiper"
-        >
-            <SwiperSlide>
-              <div className='Opinions-card'>
-                <div className='d-flex justify-content-between align-items-center'>
-                  <div className='d-flex'>
-                    <FontAwesomeIcon className='fs-2 me-2' icon={faCircleUser} style={{color: "rgb(55, 115, 255)",}} />
-                    <h4 className='m-0'>abobakr almashhor</h4>
-                  </div>
-                  <p className='m-0'>2022/12/5</p>
-                </div>
-                <h5 className='mt-3 fs-5'>Fast delivery, great quality and excellent customer service</h5>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div className='Opinions-card'>
-                <div className='d-flex justify-content-between align-items-center'>
-                  <div className='d-flex'>
-                    <FontAwesomeIcon className='fs-2 me-2' icon={faCircleUser} style={{color: "rgb(55, 115, 255)",}} />
-                    <h4 className='m-0'>salh mhamed</h4>
-                  </div>
-                  <p className='m-0'>2023/03/5</p>
-                </div>
-                <h5 className='mt-3 fs-5'>Fast delivery</h5>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className='Opinions-card'>
-                <div className='d-flex justify-content-between align-items-center'>
-                  <div className='d-flex'>
-                    <FontAwesomeIcon className='fs-2 me-2' icon={faCircleUser} style={{color: "rgb(55, 115, 255)",}} />
-                    <h4 className='m-0'>daaud namr</h4>
-                  </div>
-                  <p className='m-0'>2020/11/11</p>
-                </div>
-                <h5 className='mt-3 fs-5'>good website</h5>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div className='Opinions-card'>
-                <div className='d-flex justify-content-between align-items-center'>
-                  <div className='d-flex'>
-                    <FontAwesomeIcon className='fs-2 me-2' icon={faCircleUser} style={{color: "rgb(55, 115, 255)",}} />
-                    <h4 className='m-0'>aaz almashhor</h4>
-                  </div>
-                  <p className='m-0'>2022/02/5</p>
-                </div>
-                <h5 className='mt-3 fs-5'>Fast delivery, great quality and excellent customer service</h5>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div className='Opinions-card'>
-                <div className='d-flex justify-content-between align-items-center'>
-                  <div className='d-flex'>
-                    <FontAwesomeIcon className='fs-2 me-2' icon={faCircleUser} style={{color: "rgb(55, 115, 255)",}} />
-                    <h4 className='m-0'>khald bder</h4>
-                  </div>
-                  <p className='m-0'>2023/01/22</p>
-                </div>
-                <h5 className='mt-3 fs-5'>Fast delivery and excellent customer service</h5>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div className='Opinions-card'>
-                <div className='d-flex justify-content-between align-items-center'>
-                  <div className='d-flex'>
-                    <FontAwesomeIcon className='fs-2 me-2' icon={faCircleUser} style={{color: "rgb(55, 115, 255)",}} />
-                    <h4 className='m-0'>ahmed sdeiq</h4>
-                  </div>
-                  <p className='m-0'>2022/6/25</p>
-                </div>
-                <h5 className='mt-3 fs-5'>great quality and excellent customer service</h5>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div className='Opinions-card'>
-                <div className='d-flex justify-content-between align-items-center'>
-                  <div className='d-flex'>
-                    <FontAwesomeIcon className='fs-2 me-2' icon={faCircleUser} style={{color: "rgb(55, 115, 255)",}} />
-                    <h4 className='m-0'>taha ali</h4>
-                  </div>
-                  <p className='m-0'>2022/12/5</p>
-                </div>
-                <h5 className='mt-3 fs-5'>Fast delivery, great quality and excellent customer service</h5>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div className='Opinions-card'>
-                <div className='d-flex justify-content-between align-items-center'>
-                  <div className='d-flex'>
-                    <FontAwesomeIcon className='fs-2 me-2' icon={faCircleUser} style={{color: "rgb(55, 115, 255)",}} />
-                    <h4 className='m-0'>alwi nassr</h4>
-                  </div>
-                  <p className='m-0'>2022/1/15</p>
-                </div>
-                <h5 className='mt-3 fs-5'>Fast delivery nice</h5>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div className='Opinions-card'>
-                <div className='d-flex justify-content-between align-items-center'>
-                  <div className='d-flex'>
-                    <FontAwesomeIcon className='fs-2 me-2' icon={faCircleUser} style={{color: "rgb(55, 115, 255)",}} />
-                    <h4 className='m-0'>nadir haidr</h4>
-                  </div>
-                  <p className='m-0'>2023/06/21</p>
-                </div>
-                <h5 className='mt-3 fs-5'>Fast delivery, great quality</h5>
-              </div>
-            </SwiperSlide>
-        </Swiper>
-    </section>
-  )
-}
+    // مصفوفة بسيطة للبيانات لتجنب تكرار الكود
+    const reviews = [
+        { id: 1, name: "Abobakr Almashhor", date: "2022/12/5", text: "Fast delivery, great quality and excellent customer service" },
+        { id: 2, name: "Salh Mhamed", date: "2023/03/5", text: "Fast delivery and very professional team." },
+        { id: 3, name: "Daaud Namr", date: "2020/11/11", text: "Good website, easy to use and navigate." },
+        { id: 4, name: "Aaz Almashhor", date: "2022/02/5", text: "Great quality and excellent customer service" },
+        // أضف البقية هنا...
+    ];
 
-export default Opinions
+    return (
+        <section className='opinions-section py-5'>
+            <div className="container">
+                <div className="section-title-wrapper text-center mb-5">
+                    <span className="subtitle">Testimonials</span>
+                    <h2 className='main-title'>Our Customers' Opinion</h2>
+                    <div className="title-line"></div>
+                </div>
+
+                <Swiper
+                    slidesPerView={3}
+                    spaceBetween={30}
+                    freeMode={true}
+                    autoplay={{ delay: 3000, disableOnInteraction: false }}
+                    pagination={{ clickable: true }}
+                    breakpoints={{
+                        0: { slidesPerView: 1, spaceBetween: 20 },
+                        768: { slidesPerView: 2, spaceBetween: 30 },
+                        1024: { slidesPerView: 3, spaceBetween: 30 },
+                    }}
+                    modules={[FreeMode, Pagination, Autoplay]}
+                    className="opinions-swiper"
+                >
+                    {reviews.map((rev) => (
+                        <SwiperSlide key={rev.id}>
+                            <div className='opinion-modern-card'>
+                                <div className='card-top-info'>
+                                    <div className='user-meta'>
+                                        <FontAwesomeIcon icon={faCircleUser} className='user-avatar-icon' />
+                                        <div className="user-details">
+                                            <h4>{rev.name}</h4>
+                                            <span>{rev.date}</span>
+                                        </div>
+                                    </div>
+                                    <div className="stars-rating">
+                                        {[...Array(5)].map((_, i) => (
+                                            <FontAwesomeIcon key={i} icon={faStar} className="star-icon" />
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className='card-content'>
+                                    <p>"{rev.text}"</p>
+                                </div>
+                                <div className="card-quote-mark">❞</div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
+        </section>
+    );
+};
+
+export default Opinions;

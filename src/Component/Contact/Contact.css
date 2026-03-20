@@ -1,66 +1,137 @@
-.contact{
-    color: rgb(77, 77, 77);
+.contact-page-wrapper {
+    background-color: #f5f5f7;
+    min-height: 100vh;
 }
-.contact-customer{
-    font-family: Arial, Helvetica, sans-serif;
+
+.contact-main-section {
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    margin: 40px 0;
 }
-.contact-customer h4 {
-    color:rgb(55, 115, 255);
-    font-weight: 700;
+
+/* لوحة المعلومات (اليسار) */
+.contact-info-panel {
+    background: linear-gradient(135deg, #1d1d1f 0%, #303033 100%);
+    color: white;
 }
-.contact-customer span{
-    font-weight: 300;
+
+.support-icon {
+    font-size: 3rem;
+    color: #0071e3;
 }
-.contact-media{
+
+.detail-item {
     display: flex;
-    justify-content: center;
-    font-size: 50px;
-    gap: 50px;
+    align-items: flex-start;
+    gap: 15px;
 }
-.contact-us{
-    text-align: center;
+
+.detail-icon {
+    font-size: 1.2rem;
+    color: #0071e3;
+    margin-top: 5px;
 }
-.contact-form input{
-    width: 40%;
-    border: 0;
-    border-bottom:2px solid black;
-    padding: 5px 10px;
-    outline:none;
-    margin-bottom: 15px;
-    margin-inline:10px;
-    background-color: transparent;
-    transition: 0.2s ease-in-out;
+
+.detail-item h5 {
+    font-size: 0.9rem;
+    color: #86868b;
+    margin-bottom: 2px;
 }
-.contact-form input:hover{
-    border-bottom:3px solid black;
+
+.detail-item p {
+    font-size: 1.1rem;
+    font-weight: 600;
 }
-.contact-form input:focus{
-    outline:1px solid black;
+
+.social-icons-group {
+    display: flex;
+    gap: 25px;
+    font-size: 1.8rem;
 }
-.contact-form textarea{
-    width: 80%;
-    border: 0;
-    border-bottom:2px solid black;
-    padding: 5px 10px;
-    outline:none;
-    margin-bottom: 15px;
-    margin-inline:10px;
-    background-color: transparent;
-    transition: 0.4s ease-in-out;
+
+.social-icons-group a {
+    color: #fff;
+    transition: 0.3s;
 }
-.contact-form button{
-    text-transform: capitalize;
+
+.social-icons-group a:hover {
+    color: #0071e3;
+    transform: translateY(-5px);
+}
+
+/* لوحة النموذج (اليوم) */
+.contact-form-panel {
+    background-color: #ffffff;
+}
+
+/* تأثير Input الحديث (Floating Labels) */
+.input-group-custom {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-group-custom input,
+.input-group-custom textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: #1d1d1f;
+    border: none;
+    border-bottom: 2px solid #e5e5e5;
+    outline: none;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.input-group-custom label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #86868b;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.input-group-custom input:focus ~ label,
+.input-group-custom input:valid ~ label,
+.input-group-custom textarea:focus ~ label,
+.input-group-custom textarea:valid ~ label {
+    top: -15px;
+    font-size: 0.8rem;
+    color: #0071e3;
     font-weight: 700;
-    border-radius: 5px;
-    margin-top: 10px;
-    border: 1px transparent solid;
-    color: rgb(55, 115, 255);
-    padding: 10px 50px;
-    outline:none;
-    background-color: black;
-    transition: 0.4s ease-in-out;
 }
-.contact-form button:hover{
-    background-color: transparent;
-    border: dashed 1px rgb(55, 115, 255);
+
+.input-group-custom input:focus,
+.input-group-custom textarea:focus {
+    border-bottom: 2px solid #0071e3;
+}
+
+/* زر الإرسال */
+.send-btn-modern {
+    background: #0071e3;
+    color: white;
+    padding: 14px 45px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.send-btn-modern:hover {
+    background: #005bb5;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 113, 227, 0.2);
+}
+
+/* التجاوب */
+@media (max-width: 991px) {
+    .contact-main-section { border-radius: 0; margin: 0; }
+    .contact-info-panel { text-align: center; }
+    .detail-item { justify-content: center; }
+    .social-icons-group { justify-content: center; }
 }

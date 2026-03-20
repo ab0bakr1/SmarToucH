@@ -1,34 +1,56 @@
-import { faCreditCard, faRectangleList, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+import { faShieldHalved, faTruckFast, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Row, Container } from 'react-bootstrap'
 import "./Excel.css"
 
 const Excel = () => {
-  return (
-    <section className='my-5'>
-        <Row className='justify-content-between w-100 text-center' lg={3} md={3} sm={1} xs={1}>
-            <div className='excel-card'>
-                <div className='excel-1'>
-                    <FontAwesomeIcon className='fs-1' icon={faCreditCard} style={{color: "rgb(55, 115, 255)",}} />
-                </div>
-                <h5>secure payment</h5>
-            </div>
-            <div className='excel-card'>
-                <div className='excel-1'>
-                    <FontAwesomeIcon className='fs-1' icon={faRectangleList} style={{color: "rgb(55, 115, 255)",}} />
-                </div>
-                <h5>various options</h5>
-            </div>
-            <div className='excel-card'>
-                <div className='excel-1'>
-                    <FontAwesomeIcon className='fs-1' icon={faThumbsUp} style={{color: "rgb(55, 115, 255)",}} />
-                </div>
-                <h5>original products</h5>
-            </div>
-        </Row>
-    </section>
-  )
+    return (
+        <section className='features-section py-5'>
+            <Container>
+                <Row className='g-4 justify-content-center text-center'>
+                    {/* الميزة الأولى */}
+                    <Col lg={4} md={6}>
+                        <div className='feature-modern-card'>
+                            <div className='feature-icon-wrapper'>
+                                <FontAwesomeIcon icon={faShieldHalved} />
+                            </div>
+                            <div className='feature-text'>
+                                <h5>Secure Payment</h5>
+                                <p>100% safe payment processing</p>
+                            </div>
+                        </div>
+                    </Col>
+
+                    {/* الميزة الثانية */}
+                    <Col lg={4} md={6}>
+                        <div className='feature-modern-card'>
+                            <div className='feature-icon-wrapper'>
+                                <FontAwesomeIcon icon={faTruckFast} />
+                            </div>
+                            <div className='feature-text'>
+                                <h5>Fast Delivery</h5>
+                                <p>Shipping to your door in 24h</p>
+                            </div>
+                        </div>
+                    </Col>
+
+                    {/* الميزة الثالثة */}
+                    <Col lg={4} md={6}>
+                        <div className='feature-modern-card'>
+                            <div className='feature-icon-wrapper'>
+                                <FontAwesomeIcon icon={faCircleCheck} />
+                            </div>
+                            <div className='feature-text'>
+                                <h5>Original Products</h5>
+                                <p>Guaranteed 2-year warranty</p>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        </section>
+    )
 }
 
 export default Excel

@@ -11,15 +11,36 @@
 .main-img-wrapper {
     background: #fff;
     border-radius: 30px;
-    padding: 40px;
+    
+    /* تحديد أبعاد ثابتة للحاوية */
+    width: 100%;
+    max-width: 500px; /* يمكنك تكبير أو تصغير هذا الرقم حسب رغبتك */
+    height: 500px;    /* الطول الثابت */
+    
+    /* توسيط الصورة داخل الحاوية */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin: 0 auto 30px auto;
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    margin-bottom: 30px;
+    padding: 20px;
+    overflow: hidden;
 }
 
 .floating-img {
-    max-height: 450px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+    /* جعل الصورة تأخذ مساحة الحاوية بالكامل مع الحفاظ على أبعادها */
+    width: 100%;
+    height: 100%;
+    
+    /* السحر هنا: object-fit يضمن عدم تمطيط الصورة */
+    object-fit: contain; 
+    
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.main-img-wrapper:hover .floating-img {
+    transform: scale(1.1);
 }
 
 .floating-img:hover {
@@ -187,4 +208,7 @@
     .product-title { font-size: 2rem; }
     .specs-grid { grid-template-columns: 1fr; }
     .modern-buy-menu { width: 90%; }
+    .main-img-wrapper {
+        height: 350px; /* طول أصغر قليلاً في الموبايل ليناسب الشاشة */
+    }
 }

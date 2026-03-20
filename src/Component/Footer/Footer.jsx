@@ -1,45 +1,70 @@
 import React from 'react'
 import "./Footer.css"
-import { Container, Row } from 'react-bootstrap'
-import { faFacebook, faInstagram, faLinkedin, faSquareFacebook, faSquareGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons'
+import { Container, Row, Col } from 'react-bootstrap'
+import { faFacebook, faInstagram, faLinkedin, faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
-  return (
-    <footer>
-        <Container>
-            <Row className='align-items-center text-center' lg={3} sm={1} xs={1}>
-                <div className='footer-link'>
-                    <Link to="/about-us">About</Link><br/>
-                    <Link to="//Shop-All">Shop all</Link><br/>
-                    <Link to="/contact-us">Contact Us</Link><br/>
-                </div>
-                <div className='footer-logo'>
-                    <h1><Link to="/"><span className="logo1" >Smar</span><span className="logo3">T</span><span className="logo2">oucH</span></Link></h1>
-                    <div className='footer-socail d-flex gap-4 fs-4 justify-content-center'>
-                        <FontAwesomeIcon icon={faFacebook} style={{color: "rgb(55, 115, 255)",}} />
-                        <FontAwesomeIcon icon={faInstagram} style={{color: "rgb(55, 115, 255)",}} />
-                        <FontAwesomeIcon icon={faXTwitter} style={{color: "rgb(55, 115, 255)",}} />
-                    </div>
-                </div>
-                <div className='footer-new'>
-                    <h3>Sign up for our newsletter</h3>
-                    <input type="email" placeholder='Your Email'/><button>Subscribe</button>
-                </div>
-            </Row>
-            <hr />
-            <Row>
-                <p className='text-center fs-4 fw-bold text-capitalize'>Copyright © 2023 - All Rights <span style={{color:"rgb(55, 115, 255)"}}>abobakr almashhor</span>.</p>
-                <div className='footer-socail d-flex gap-4 fs-4 justify-content-center'>
-                    <a href='https://www.linkedin.com/in/abobakr-almashhor/' target='_blank'><FontAwesomeIcon icon={faLinkedin} style={{color: "rgb(55, 115, 255)",}} /></a>
-                    <a href='https://www.facebook.com/profile.php?id=100068290724398' target='_blank'><FontAwesomeIcon icon={faSquareFacebook} style={{color: "rgb(55, 115, 255)",}} /></a>
-                    <a href='https://github.com/ab0bakr1' target='_blank'><FontAwesomeIcon icon={faSquareGithub} style={{color: "rgb(55, 115, 255)",}} /></a>
-                </div>
-            </Row>
-        </Container>
-    </footer>
-  )
+    return (
+        <footer className='main-footer'>
+            <Container>
+                <Row className='py-5 gy-4'>
+                    {/* عمود الروابط السريعة */}
+                    <Col lg={4} md={6} className='text-center text-md-start'>
+                        <h5 className='footer-title'>Quick Exploration</h5>
+                        <ul className='footer-links-list p-0'>
+                            <li><Link to="/about-us">Our Story</Link></li>
+                            <li><Link to="/Shop-All">Store All Phones</Link></li>
+                            <li><Link to="/contact-us">Support Center</Link></li>
+                            <li><Link to="/favorites">My Favorites</Link></li>
+                        </ul>
+                    </Col>
+
+                    {/* عمود اللوجو والسوشيال */}
+                    <Col lg={4} md={6} className='text-center order-first order-lg-0'>
+                        <div className='footer-brand'>
+                            <Link to="/" className="footer-logo">
+                                <span className="logo-part1">Smar</span><span className="logo-part2">T</span><span className="logo-part3">oucH</span>
+                            </Link>
+                            <p className="footer-tagline">Premium Experience in every touch.</p>
+                            <div className='social-pills d-flex gap-3 justify-content-center mt-4'>
+                                <a href="#fb" className="social-pill"><FontAwesomeIcon icon={faFacebook} /></a>
+                                <a href="#ig" className="social-pill"><FontAwesomeIcon icon={faInstagram} /></a>
+                                <a href="#x" className="social-pill"><FontAwesomeIcon icon={faXTwitter} /></a>
+                            </div>
+                        </div>
+                    </Col>
+
+                    {/* عمود النيوزليتر */}
+                    <Col lg={4} md={12} className='text-center text-md-end'>
+                        <h5 className='footer-title'>Stay Updated</h5>
+                        <p className="text-muted small">Get the latest tech deals & news.</p>
+                        <div className='newsletter-box'>
+                            <input type="email" placeholder='Enter your email' />
+                            <button>Join</button>
+                        </div>
+                    </Col>
+                </Row>
+
+                <hr className="footer-divider" />
+
+                <Row className='pb-4 align-items-center'>
+                    <Col md={6} className="text-center text-md-start">
+                        <p className='copyright-text'>
+                            Copyright © 2026 - Crafted by <span className="dev-name">Abobakr Almashhor</span>
+                        </p>
+                    </Col>
+                    <Col md={6} className="text-center text-md-end">
+                        <div className='dev-socials d-flex gap-3 justify-content-center justify-content-md-end'>
+                            <a href='https://www.linkedin.com/' target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} /></a>
+                            <a href='https://github.com/' target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        </footer>
+    )
 }
 
 export default Footer

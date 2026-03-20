@@ -30,11 +30,13 @@ const SinglePhones = () => {
                         {/* الجانب الأيسر: عرض الصور */}
                         <Col lg={6} className="product-image-section">
                             <div className="main-img-wrapper">
-                                <img 
-                                    src={ImgColor ? phones.image[ImgColor] : phones.image.one} 
-                                    alt={phones.model} 
-                                    className="img-fluid floating-img"
-                                />
+                                <div className="main-img-wrapper">
+                                    <img 
+                                        src={ImgColor ? phones.image[ImgColor] : phones.image.one} 
+                                        alt={phones.model} 
+                                        className="floating-img" /* استخدمنا الكلاس الجديد فقط */
+                                    />
+                                </div>
                             </div>
                             <div className="color-selector-wrapper">
                                 <h6>Select Color:</h6>

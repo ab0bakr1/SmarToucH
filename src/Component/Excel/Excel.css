@@ -1,15 +1,64 @@
-.excel-card h5{
+.features-section {
+    background: #fbfbfd; /* لون خلفية ناعم جداً */
+    border-radius: 30px;
+    margin-top: 40px;
+}
+
+.feature-modern-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    height: 100%;
+}
+
+.feature-modern-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 113, 227, 0.2);
+}
+
+.feature-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: #f5f5f7;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #0071e3; /* اللون الأزرق المعتمد لدينا */
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.feature-modern-card:hover .feature-icon-wrapper {
+    background: #0071e3;
+    color: #fff;
+    transform: rotateY(180deg); /* تأثير دوران بسيط عند الهوفر */
+}
+
+.feature-text h5 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 8px;
     text-transform: capitalize;
-    margin-top: 10px;
-    color: rgb(55, 115, 255);
 }
-.excel-1{
-    background-color: rgb(77, 77, 77);
-    width: 80px;
-    height: 80px;
-    margin: auto;
-    border-radius: 50% 50% 50% 0%;
+
+.feature-text p {
+    font-size: 0.95rem;
+    color: #86868b;
+    margin: 0;
 }
-.excel-1 svg{
-    margin-top: 23px;
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .feature-modern-card {
+        padding: 20px;
+    }
 }
